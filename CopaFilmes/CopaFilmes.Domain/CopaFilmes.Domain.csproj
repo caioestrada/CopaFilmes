@@ -41,10 +41,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\Filme.cs" />
-    <Compile Include="Interfaces\Repositories\IFilmeApiData.cs" />
+    <Compile Include="Interfaces\ApiDatas\IFilmeApiData.cs" />
+    <Compile Include="Interfaces\Services\ICampeonatoService.cs" />
     <Compile Include="Interfaces\Services\IFilmeService.cs" />
+    <Compile Include="Interfaces\Services\IPartidaService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\CampeonatoService.cs" />
     <Compile Include="Services\FilmeService.cs" />
+    <Compile Include="Services\PartidaService.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

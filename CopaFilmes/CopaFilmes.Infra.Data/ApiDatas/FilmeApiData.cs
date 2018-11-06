@@ -2,10 +2,10 @@
 using System.Configuration;
 using System.Net.Http;
 using CopaFilmes.Domain.Entities;
-using CopaFilmes.Domain.Interfaces.Repositories;
+using CopaFilmes.Domain.Interfaces.ApiDatas;
 using Newtonsoft.Json;
 
-namespace CopaFilmes.Infra.Data.Repositories
+namespace CopaFilmes.Infra.Data.ApiDatas
 {
     public class FilmeApiData : IFilmeApiData
     {

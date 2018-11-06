@@ -51,8 +51,10 @@
     <Compile Include="AutoMapper\AutoMapperConfig.cs" />
     <Compile Include="AutoMapper\DomainToViewModelMappingProfile.cs" />
     <Compile Include="AutoMapper\ViewModelToDomainMappingProfile.cs" />
+    <Compile Include="Interfaces\ICampeonatoAppService.cs" />
     <Compile Include="Interfaces\IFilmeAppService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\CampeonatoAppService.cs" />
     <Compile Include="Services\FilmeAppService.cs" />
     <Compile Include="ViewModel\FilmeViewModel.cs" />
   </ItemGroup>

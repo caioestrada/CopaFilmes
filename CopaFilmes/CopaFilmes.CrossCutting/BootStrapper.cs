@@ -1,9 +1,9 @@
 ﻿using CopaFilmes.Application.Interfaces;
 using CopaFilmes.Application.Services;
-using CopaFilmes.Domain.Interfaces.Repositories;
+using CopaFilmes.Domain.Interfaces.ApiDatas;
 using CopaFilmes.Domain.Interfaces.Services;
 using CopaFilmes.Domain.Services;
-using CopaFilmes.Infra.Data.Repositories;
+using CopaFilmes.Infra.Data.ApiDatas;
 using SimpleInjector;
 
 namespace CopaFilmes.CrossCutting
@@ -14,9 +14,12 @@ namespace CopaFilmes.CrossCutting
         {
             //App
             container.Register<IFilmeAppService, FilmeAppService>(Lifestyle.Scoped);
+            container.Register<ICampeonatoAppService, CampeonatoAppService>(Lifestyle.Scoped);
 
             //Domain
             container.Register<IFilmeService, FilmeService>(Lifestyle.Scoped);
+            container.Register<IPartidaService, PartidaService>(Lifestyle.Scoped);
+            container.Register<ICampeonatoService, CampeonatoService>(Lifestyle.Scoped);
 
             //Data
             container.Register<IFilmeApiData, FilmeApiData>(Lifestyle.Scoped);

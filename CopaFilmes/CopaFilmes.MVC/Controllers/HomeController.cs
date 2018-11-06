@@ -10,15 +10,22 @@ namespace CopaFilmes.MVC.Controllers
     public class HomeController : Controller
     {
         private readonly IFilmeAppService _filmeAppService;
+        private readonly ICampeonatoAppService _campeonatoAppService;
 
-        public HomeController(IFilmeAppService filmeAppService)
+        public HomeController(IFilmeAppService filmeAppService, ICampeonatoAppService campeonatoAppService)
         {
             _filmeAppService = filmeAppService;
+            _campeonatoAppService = campeonatoAppService;
         }
 
         public ActionResult Index()
         {
             var filmes =_filmeAppService.ObterTodos();
+            var filmesSelecionados = filmes.Skip(30).Take(8).ToList();
+            var filmesVencederosDaPrimeiraFase = _campeonatoAppService.DefinirVencedoresDaPrimeiraFase(filmesSelecionados);
+            var filmesVencederosDaFaseEliminatoria = _campeonatoAppService.DefinirVencedoresDaFaseEliminatoria(filmesVencederosDaPrimeiraFase);
+            var campeao = _campeonatoAppService.DefinirCampeao(filmesVencederosDaFaseEliminatoria);
+
             return View();
         }
 

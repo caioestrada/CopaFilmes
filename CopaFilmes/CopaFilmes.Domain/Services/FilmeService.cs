@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using CopaFilmes.Domain.Entities;
-using CopaFilmes.Domain.Interfaces.Repositories;
+using CopaFilmes.Domain.Interfaces.ApiDatas;
 using CopaFilmes.Domain.Interfaces.Services;
 
 namespace CopaFilmes.Domain.Services
