@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CopaFilmes.Domain.Interfaces.Repositories
 {
-    public interface IFilmeRepository
+    public interface IFilmeApiData
     {
         IEnumerable<Filme> ObterTodos();
     }

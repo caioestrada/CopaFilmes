@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 
 namespace CopaFilmes.Infra.Data.Repositories
 {
-    public class FilmeRepository : IFilmeRepository
+    public class FilmeApiData : IFilmeApiData
     {
         public IEnumerable<Filme> ObterTodos()
         {

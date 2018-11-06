@@ -8,9 +8,9 @@ namespace CopaFilmes.Domain.Entities
 {
     public class Filme
     {
-        public string id { get; set; }
-        public string primaryTitle { get; set; }
-        public int year { get; set; }
-        public string averageRating { get; set; }
+        public string Id { get; set; }
+        public string PrimaryTitle { get; set; }
+        public int Year { get; set; }
+        public string AverageRating { get; set; }
     }
 }

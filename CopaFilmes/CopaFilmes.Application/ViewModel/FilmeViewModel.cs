@@ -9,15 +9,15 @@ namespace CopaFilmes.Application.ViewModel
 {
     public class FilmeViewModel
     {
-        public string id { get; set; }
+        public string Id { get; set; }
 
         [Display(Name = "Título")]
-        public string primaryTitle { get; set; }
+        public string PrimaryTitle { get; set; }
 
         [Display(Name = "Ano")]
-        public int year { get; set; }
+        public int Year { get; set; }
 
         [Display(Name = "Nota")]
-        public string averageRating { get; set; }
+        public string AverageRating { get; set; }
     }
 }

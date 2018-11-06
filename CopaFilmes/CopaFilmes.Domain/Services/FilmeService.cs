@@ -7,10 +7,10 @@ namespace CopaFilmes.Domain.Services
 {
     public class FilmeService : IFilmeService
     {
-        private readonly IFilmeRepository _filmeRepository;
+        private readonly IFilmeApiData _filmeApiData;
 
-        public FilmeService(IFilmeRepository filmeRepository) => _filmeRepository = filmeRepository;
+        public FilmeService(IFilmeApiData filmeApiData) => _filmeApiData = filmeApiData;
 
-        public IEnumerable<Filme> ObterTodos() => _filmeRepository.ObterTodos();
+        public IEnumerable<Filme> ObterTodos() => _filmeApiData.ObterTodos();
     }
 }

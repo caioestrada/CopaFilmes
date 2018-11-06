@@ -19,7 +19,7 @@ namespace CopaFilmes.CrossCutting
             container.Register<IFilmeService, FilmeService>(Lifestyle.Scoped);
 
             //Data
-            container.Register<IFilmeRepository, FilmeRepository>(Lifestyle.Scoped);
+            container.Register<IFilmeApiData, FilmeApiData>(Lifestyle.Scoped);
         }
     }
 }
