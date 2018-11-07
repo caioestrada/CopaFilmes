@@ -14,25 +14,20 @@ namespace CopaFilmes.Application.Services
     public class CampeonatoAppService : ICampeonatoAppService
     {
         private readonly ICampeonatoService _campeonatoService;
+        public CampeonatoViewModel CampeonatoViewModel { get; set; }
 
         public CampeonatoAppService(ICampeonatoService campeonatoService)
         {
             _campeonatoService = campeonatoService;
+            CampeonatoViewModel = new CampeonatoViewModel();
         }
 
-        public List<FilmeViewModel> DefinirVencedoresDaPrimeiraFase(List<FilmeViewModel> filmesDaPrimeiraFase)
+        public void RelizarCampeonato(IEnumerable<FilmeViewModel> filmesSelecionados)
         {
-            return Mapper.Map<List<FilmeViewModel>>(_campeonatoService.DefinirVencedoresDaPrimeiraFase(Mapper.Map<List<Filme>>(filmesDaPrimeiraFase)));
-        }
-
-        public List<FilmeViewModel> DefinirVencedoresDaFaseEliminatoria(List<FilmeViewModel> filmesDaFaseEliminatoria)
-        {
-            return Mapper.Map<List<FilmeViewModel>>(_campeonatoService.DefinirVencedoresDaFaseEliminatoria(Mapper.Map<List<Filme>>(filmesDaFaseEliminatoria)));
-        }
-
-        public FilmeViewModel DefinirCampeao(List<FilmeViewModel> finalistas)
-        {
-            return Mapper.Map<FilmeViewModel>(_campeonatoService.DefinirCampeao(Mapper.Map<List<Filme>>(finalistas)));
+            var vencedoresDaPrimeiraFase =_campeonatoService.DefinirVencedoresDaPrimeiraFase(Mapper.Map<List<Filme>>(filmesSelecionados));
+            var finalistas = _campeonatoService.DefinirVencedoresDaFaseEliminatoria(vencedoresDaPrimeiraFase);
+            this.CampeonatoViewModel.Campeao = Mapper.Map<FilmeViewModel>(_campeonatoService.DefinirCampeao(finalistas));
+            this.CampeonatoViewModel.ViceCampeao = Mapper.Map<FilmeViewModel>(_campeonatoService.DefinirVice(finalistas));
         }
     }
 }

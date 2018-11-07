@@ -19,5 +19,7 @@ namespace CopaFilmes.Application.ViewModel
 
         [Display(Name = "Nota")]
         public string AverageRating { get; set; }
+
+        public bool Selecionado { get; set; }
     }
 }

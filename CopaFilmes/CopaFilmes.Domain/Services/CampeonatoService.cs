@@ -21,18 +21,12 @@ namespace CopaFilmes.Domain.Services
         {
             var filmesVencedores = new List<Filme>();
             filmesDaPrimeiraFase = filmesDaPrimeiraFase.OrderBy(x => x.PrimaryTitle).ToList();
-            foreach (var filme in filmesDaPrimeiraFase.ToList())
+            for(int i = 0; i < filmesDaPrimeiraFase.Count / 2; i++)
             {
-                var primeiroFilme = filme;
-                var ultimoFilme = filmesDaPrimeiraFase.LastOrDefault();
-                
+                var primeiroFilme = filmesDaPrimeiraFase[i];
+                var ultimoFilme = filmesDaPrimeiraFase[filmesDaPrimeiraFase.Count() - (i + 1)];
+
                 filmesVencedores.Add(RealizarConfronto(primeiroFilme, ultimoFilme));
-
-                filmesDaPrimeiraFase.Remove(primeiroFilme);
-                filmesDaPrimeiraFase.Remove(ultimoFilme);
-
-                if (filmesDaPrimeiraFase.Count == 0)
-                    break;
             }
 
             return filmesVencedores;
@@ -50,6 +44,12 @@ namespace CopaFilmes.Domain.Services
         public Filme DefinirCampeao(List<Filme> finalistas)
         {
             return RealizarConfronto(finalistas.FirstOrDefault(), finalistas.Skip(1).Take(1).SingleOrDefault());
+        }
+
+        public Filme DefinirVice(List<Filme> finalistas)
+        {
+            var vencedor = RealizarConfronto(finalistas.FirstOrDefault(), finalistas.Skip(1).Take(1).SingleOrDefault());
+            return finalistas.Where(x => x.Id != vencedor.Id).FirstOrDefault();
         }
 
         private Filme RealizarConfronto(Filme primeiroFilmeDoConfronto, Filme segundoFilmeDoConfronto)
