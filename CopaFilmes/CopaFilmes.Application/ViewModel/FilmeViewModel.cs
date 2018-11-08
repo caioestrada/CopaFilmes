@@ -18,7 +18,7 @@ namespace CopaFilmes.Application.ViewModel
         public int Year { get; set; }
 
         [Display(Name = "Nota")]
-        public string AverageRating { get; set; }
+        public decimal AverageRating { get; set; }
 
         public bool Selecionado { get; set; }
     }

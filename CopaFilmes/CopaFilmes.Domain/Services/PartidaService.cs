@@ -12,13 +12,10 @@ namespace CopaFilmes.Domain.Services
     {
         public static Filme RealizarDisputaEntreDoisTimes(Filme primeiroFilme, Filme segundoFilme)
         {
-            var notaPrimeiroFilme = Convert.ToDecimal(primeiroFilme.AverageRating);
-            var notaSegundoFilme = Convert.ToDecimal(segundoFilme.AverageRating);
-
-            if (notaPrimeiroFilme == notaSegundoFilme)
+            if (primeiroFilme.AverageRating == segundoFilme.AverageRating)
                 return DesempatarEmCasoDeMesmaNota(primeiroFilme, segundoFilme);
 
-            return notaPrimeiroFilme > notaSegundoFilme ? primeiroFilme : segundoFilme;
+            return primeiroFilme.AverageRating > segundoFilme.AverageRating ? primeiroFilme : segundoFilme;
         }
 
         private static Filme DesempatarEmCasoDeMesmaNota(Filme primeiroFilme, Filme segundoFilme)
