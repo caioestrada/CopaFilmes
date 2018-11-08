@@ -1,6 +1,6 @@
 ﻿using CopaFilmes.Application.Interfaces;
 using CopaFilmes.Application.Services;
-using CopaFilmes.Domain.Interfaces.ApiDatas;
+using CopaFilmes.Domain.Interfaces.ApiServices;
 using CopaFilmes.Domain.Interfaces.Services;
 using CopaFilmes.Domain.Services;
 using CopaFilmes.Infra.Data.ApiDatas;
@@ -18,11 +18,10 @@ namespace CopaFilmes.CrossCutting
 
             //Domain
             container.Register<IFilmeService, FilmeService>(Lifestyle.Scoped);
-            container.Register<IPartidaService, PartidaService>(Lifestyle.Scoped);
             container.Register<ICampeonatoService, CampeonatoService>(Lifestyle.Scoped);
 
             //Data
-            container.Register<IFilmeApiData, FilmeApiData>(Lifestyle.Scoped);
+            container.Register<IFilmeApiService, FilmeApiService>(Lifestyle.Scoped);
         }
     }
 }

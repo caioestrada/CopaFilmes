@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace CopaFilmes.Domain.Services
 {
-    public class PartidaService : IPartidaService
+    public static class PartidaService
     {
-        public Filme RealizarDisputaEntreDoisTimes(Filme primeiroFilme, Filme segundoFilme)
+        public static Filme RealizarDisputaEntreDoisTimes(Filme primeiroFilme, Filme segundoFilme)
         {
             var notaPrimeiroFilme = Convert.ToDecimal(primeiroFilme.AverageRating);
             var notaSegundoFilme = Convert.ToDecimal(segundoFilme.AverageRating);
@@ -21,7 +21,7 @@ namespace CopaFilmes.Domain.Services
             return notaPrimeiroFilme > notaSegundoFilme ? primeiroFilme : segundoFilme;
         }
 
-        private Filme DesempatarEmCasoDeMesmaNota(Filme primeiroFilme, Filme segundoFilme)
+        private static Filme DesempatarEmCasoDeMesmaNota(Filme primeiroFilme, Filme segundoFilme)
         {
             return new List<Filme>() { primeiroFilme, segundoFilme }.OrderBy(x => x.PrimaryTitle).FirstOrDefault();
         }

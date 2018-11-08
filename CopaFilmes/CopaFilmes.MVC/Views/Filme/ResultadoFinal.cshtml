@@ -1,0 +1,32 @@
+﻿@model CopaFilmes.Application.ViewModel.CampeonatoViewModel
+@Styles.Render("~/Content/filme")
+
+@{
+    ViewBag.Title = "Campeonato de filmes";
+}
+
+<br />
+<div class="panel panel-default jumbotron text-center painel-principal">
+    <p><label class="campeonato-filmes">CAMPEONATO DE FILMES</label></p>
+    <p><label class="titulo-pagina">Resultao Final</label></p>
+    <p><hr class="divisor" /></p>
+    <p>
+        <label class="mensagem-regras">
+            Veja o resultado final do Campeonato de filmes de forma simples e rapida.
+        </label>
+    </p>
+</div>
+
+<br />
+
+<div class="container">
+    <div class="row">
+        <label class="posicao-final">1º</label>
+        <label class="filme-vencedor">@Model.Campeao.PrimaryTitle</label>
+    </div>
+    <br />
+    <div class="row">
+        <label class="posicao-final">2º</label>
+        <label class="filme-vencedor">@Model.ViceCampeao.PrimaryTitle</label>
+    </div>
+</div>

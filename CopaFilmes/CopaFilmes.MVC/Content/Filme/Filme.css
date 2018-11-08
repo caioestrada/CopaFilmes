@@ -1,0 +1,56 @@
+﻿.painel-principal {
+    background-color: #313131; 
+    border: hidden;
+}
+
+.campeonato-filmes {
+    color: lightgrey;
+    font-size: small;
+}
+
+.titulo-pagina {
+    color: white;
+    font-size: xx-large;
+}
+
+.divisor {
+    width: 5%;
+    color: lightgrey;
+}
+
+.mensagem-regras {
+    color: white; 
+    font-size: small;
+}
+
+.btn-campeonato {
+    background-color: black;
+    color: white;
+    font-size: x-small;
+    padding: 15px 15px 15px 15px;
+}
+
+.check-filme {
+    width: 20px; 
+    height: 20px;
+}
+
+.posicao-final {
+    width: 6%;
+    height: 80px;
+    background-color: #313131;
+    color: white;
+    font-size: xx-large;
+    text-align: center;
+    padding-top: 15px;
+}
+
+.filme-vencedor {
+    width: 93%; 
+    height: 80px; 
+    background-color: white; 
+    padding-top: 30px; 
+    margin-left: -3px; 
+    padding-left: 30px; 
+    font-size: large;
+}

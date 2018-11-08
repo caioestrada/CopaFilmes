@@ -10,13 +10,6 @@ namespace CopaFilmes.Domain.Services
 {
     public class CampeonatoService : ICampeonatoService
     {
-        private readonly IPartidaService _partidaService;
-
-        public CampeonatoService(IPartidaService partidaService)
-        {
-            _partidaService = partidaService;
-        }
-
         public List<Filme> DefinirVencedoresDaPrimeiraFase(List<Filme> filmesDaPrimeiraFase)
         {
             var filmesVencedores = new List<Filme>();
@@ -54,7 +47,7 @@ namespace CopaFilmes.Domain.Services
 
         private Filme RealizarConfronto(Filme primeiroFilmeDoConfronto, Filme segundoFilmeDoConfronto)
         {
-            return _partidaService.RealizarDisputaEntreDoisTimes(primeiroFilmeDoConfronto, segundoFilmeDoConfronto);
+            return PartidaService.RealizarDisputaEntreDoisTimes(primeiroFilmeDoConfronto, segundoFilmeDoConfronto);
         }
     }
 }

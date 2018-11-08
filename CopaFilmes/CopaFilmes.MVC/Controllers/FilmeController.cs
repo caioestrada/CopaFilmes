@@ -27,8 +27,7 @@ namespace CopaFilmes.MVC.Controllers
         public ActionResult Index(List<FilmeViewModel> filmesSelecionados)
         {
             _campeonatoAppService.RelizarCampeonato(filmesSelecionados.Where(x => x.Selecionado));
-            var campeonatoViewModel = _campeonatoAppService.CampeonatoViewModel;
-            return View();
+            return View("ResultadoFinal", _campeonatoAppService.CampeonatoViewModel);
         }
     }
 }

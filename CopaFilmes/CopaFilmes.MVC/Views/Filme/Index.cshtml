@@ -1,47 +1,50 @@
 ﻿@model List<CopaFilmes.Application.ViewModel.FilmeViewModel>
+@Styles.Render("~/Content/filme")
 
 @{
     ViewBag.Title = "Campeonato de filmes";
 }
 
 <br />
-<div class="panel panel-default jumbotron text-center" style="background-color:grey">
-    <p><label style="color:lightgrey; font-size:small">CAMPEONATO DE FILMES</label></p>
-    <p><label style="color:white; font-size:xx-large">Fase de Seleção</label></p>
-    <p><hr style="width:5%; color:lightgrey" /></p>
-    <p>
-        <label style="color:white; font-size:small">
-            Selecione 8 filmes que você deseja que entrem ma competição e depois pressione o
-            botão Gerar Meu Campeonato para prosseguir.
-        </label>
-    </p>
+<div class="container">
+    <div class="panel panel-default jumbotron text-center painel-principal">
+        <p><label class="campeonato-filmes">CAMPEONATO DE FILMES</label></p>
+        <p><label class="titulo-pagina">Fase de Seleção</label></p>
+        <p><hr class="divisor" /></p>
+        <p>
+            <label class="mensagem-regras">
+                Selecione 8 filmes que você deseja que entrem ma competição e depois pressione o <br />
+                botão Gerar Meu Campeonato para prosseguir.
+            </label>
+        </p>
+    </div>
 </div>
-
-<br />
 @using (Html.BeginForm("Index", "Filme", FormMethod.Post))
 {
-    <div>
-        <label>Selecionados <label id="totalChecados">0</label> de 8 filmes</label>
-        <input type="submit" disabled="disabled" id="btnGerarCampeonato" class="btn pull-right" style="background-color:dimgray; color:white; font-size:x-small" value=" GERAR MEU CAMPEONATO " />
+    <div class="container">
+        <label style="color:white">Selecionados <br /><label id="totalChecados">0</label> de 8 filmes</label>
+        <input type="submit" disabled="disabled" id="btnGerarCampeonato" class="btn pull-right btn-campeonato" value=" GERAR MEU CAMPEONATO " />
     </div>
     <br />
 
-    <div class="container">
-        @for (int i = 0; i < Model.Count(); i++)
-        {
-            <div class="checkbox col-lg-3 col-md-3 col-sm-3">
-                <input type="checkbox" id="@Model[i].Id" />
-                <label>@Model[i].PrimaryTitle</label><br />
-                <label class="text-muted">@Model[i].Year</label>
+    for (int i = 0; i < Model.Count(); i++)
+    {
+        <div class="col-lg-3 col-md-3 col-sm-3">
+            <div class="panel panel-default panel-footer">
+                <p class="checkbox">
+                    <input type="checkbox" id="@Model[i].Id" class="check-filme" style="margin-top:10px"/>&nbsp;&nbsp;&nbsp;
+                    <label style="font-size: x-small;"><b>@Model[i].PrimaryTitle</b></label><br />&nbsp;&nbsp;&nbsp;
+                    <label style="font-size: xx-small" class="text-muted">@Model[i].Year</label>
+                </p>
             </div>
+        </div>
 
-            @Html.HiddenFor(m => m[i].Id)
-            @Html.HiddenFor(m => m[i].PrimaryTitle)
-            @Html.HiddenFor(m => m[i].AverageRating)
-            @Html.HiddenFor(m => m[i].Year)
-            @Html.HiddenFor(m => m[i].Selecionado, new { @id = Model[i].Id })
-        }
-    </div>
+        @Html.HiddenFor(m => m[i].Id)
+        @Html.HiddenFor(m => m[i].PrimaryTitle)
+        @Html.HiddenFor(m => m[i].AverageRating)
+        @Html.HiddenFor(m => m[i].Year)
+        @Html.HiddenFor(m => m[i].Selecionado, new { @id = Model[i].Id })
+    }
 }
 
 @section Scripts {

@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CopaFilmes.Domain.Interfaces.ApiDatas
+namespace CopaFilmes.Domain.Interfaces.ApiServices
 {
-    public interface IFilmeApiData
+    public interface IFilmeApiService
     {
         IEnumerable<Filme> ObterTodos();
     }

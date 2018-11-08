@@ -11,5 +11,11 @@ $checkboxes.change(function () {
 });
 
 $('input').click(function () {
-    $('input#' + this.id).val('True');
+    var inputHidden = 'input#' + this.id;
+    if ($(inputHidden).val() == 'True') {
+        $(inputHidden).val('False');
+    }
+    else {
+        $(inputHidden).val('True');
+    }
 });
