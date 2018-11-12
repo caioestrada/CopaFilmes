@@ -42,16 +42,18 @@ namespace CopaFilmes.MVC.Test.PageObjects
         #endregion
 
         private readonly IWebDriver _webDriver;
+        private readonly ResultadoPage _resultadoPage;
 
         public FilmesPage(IWebDriver webDriver)
         {
             _webDriver = webDriver;
             _webDriver.Manage().Timeouts().AsynchronousJavaScript = TimeSpan.FromSeconds(5);
+            _resultadoPage = new ResultadoPage(_webDriver);
 
             PageFactory.InitElements(_webDriver, this);
         }
 
-        public string RealizarCampeonato()
+        public List<string> RealizarCampeonato()
         {
             IrParaPagina();
             SelecionarOsIncriveis2();
@@ -62,8 +64,9 @@ namespace CopaFilmes.MVC.Test.PageObjects
             SelecionarDeadpool2();
             SelecionarHanSolo();
             SelecionarThor();
+            ClicarEmGerarCampeonato();
 
-            return ClicarEmGerarCampeonato();
+            return _resultadoPage.ObterVencedores();
         }
 
         private void IrParaPagina()
@@ -91,7 +94,7 @@ namespace CopaFilmes.MVC.Test.PageObjects
         private string ClicarEmGerarCampeonato()
         {
             btnGerarCampeonato.Click();
-            Task.Delay(1000).Wait();
+            Task.Delay(2000).Wait();
             return _webDriver.Url;
         }
     }

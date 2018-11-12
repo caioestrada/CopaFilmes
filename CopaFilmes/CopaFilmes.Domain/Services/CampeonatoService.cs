@@ -42,10 +42,10 @@ namespace CopaFilmes.Domain.Services
         public Filme DefinirVice(List<Filme> finalistas)
         {
             var vencedor = RealizarConfronto(finalistas.FirstOrDefault(), finalistas.Skip(1).Take(1).SingleOrDefault());
-            return finalistas.FirstOrDefault(x => x.Id != vencedor.Id);
+            return finalistas.FirstOrDefault(filme => filme.Id != vencedor.Id);
         }
 
-        public List<Filme> OrdernarFilmesPorOrdemAlfabetica(List<Filme> filmesDaPrimeiraFase) => filmesDaPrimeiraFase.OrderBy(x => x.PrimaryTitle).ToList();
+        public List<Filme> OrdernarFilmesPorOrdemAlfabetica(List<Filme> filmesDaPrimeiraFase) => filmesDaPrimeiraFase.OrderBy(filme => filme.PrimaryTitle).ToList();
 
         private Filme RealizarConfronto(Filme primeiroFilmeDoConfronto, Filme segundoFilmeDoConfronto)
         {

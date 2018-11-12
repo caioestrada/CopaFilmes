@@ -30,8 +30,8 @@ namespace CopaFilmes.MVC
             bundles.Add(new ScriptBundle("~/bundles/scriptsFilme").Include(
                       "~/Scripts/eventos/checkbox.js"));
 
-            bundles.Add(new StyleBundle("~/Content/filme").Include(
-                      "~/Content/Filme/filme.css"));
+            bundles.Add(new StyleBundle("~/Content/Filme").Include(
+                      "~/Content/filme.css"));
         }
     }
 }

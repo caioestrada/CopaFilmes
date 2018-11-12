@@ -20,7 +20,7 @@ namespace CopaFilmes.Domain.Services
 
         private static Filme DesempatarEmCasoDeMesmaNota(Filme primeiroFilme, Filme segundoFilme)
         {
-            return new List<Filme>() { primeiroFilme, segundoFilme }.OrderBy(x => x.PrimaryTitle).FirstOrDefault();
+            return new List<Filme>() { primeiroFilme, segundoFilme }.OrderBy(filme => filme.PrimaryTitle).FirstOrDefault();
         }
     }
 }

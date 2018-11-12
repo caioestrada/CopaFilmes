@@ -1,7 +1,5 @@
-﻿using System;
-using CopaFilmes.MVC.Test.PageObjects;
+﻿using CopaFilmes.MVC.Test.PageObjects;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 
 namespace CopaFilmes.MVC.Test.Tests
@@ -18,10 +16,11 @@ namespace CopaFilmes.MVC.Test.Tests
                 var filmesPage = new FilmesPage(weDriver);
 
                 // Act
-                var url = filmesPage.RealizarCampeonato();
+                var vencedores = filmesPage.RealizarCampeonato();
 
                 // Assert
-                Assert.AreEqual("http://localhost/App/CopaFilmes/", url);
+                Assert.AreEqual("Vingadores: Guerra Infinita", vencedores[0]);
+                Assert.AreEqual("Os Incríveis 2", vencedores[1]);
             }
         }
     }

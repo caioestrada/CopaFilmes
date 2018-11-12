@@ -55,6 +55,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PageObjects\ResultadoPage.cs" />
     <Compile Include="Tests\FrontTest.cs" />
     <Compile Include="PageObjects\FilmesPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
