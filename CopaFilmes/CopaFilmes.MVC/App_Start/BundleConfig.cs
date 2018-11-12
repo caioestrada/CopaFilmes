@@ -1,5 +1,4 @@
-﻿using System.Web;
-using System.Web.Optimization;
+﻿using System.Web.Optimization;
 
 namespace CopaFilmes.MVC
 {
@@ -30,8 +29,8 @@ namespace CopaFilmes.MVC
             bundles.Add(new ScriptBundle("~/bundles/scriptsFilme").Include(
                       "~/Scripts/eventos/checkbox.js"));
 
-            bundles.Add(new StyleBundle("~/Content/Filme").Include(
-                      "~/Content/filme.css"));
+            bundles.Add(new ScriptBundle("~/Content/filme").Include(
+                      "~/Content/Filme/filme.css"));
         }
     }
 }

@@ -1,5 +1,5 @@
 ﻿.painel-principal {
-    background-color: #313131; 
+    background-color: #313131;
     border: hidden;
 }
 
@@ -19,7 +19,7 @@
 }
 
 .mensagem-regras {
-    color: white; 
+    color: white;
     font-size: small;
 }
 
@@ -31,7 +31,7 @@
 }
 
 .check-filme {
-    width: 20px; 
+    width: 20px;
     height: 20px;
 }
 
@@ -46,11 +46,11 @@
 }
 
 .filme-vencedor {
-    width: 93%; 
-    height: 80px; 
-    background-color: white; 
-    padding-top: 30px; 
-    margin-left: -3px; 
-    padding-left: 30px; 
+    width: 93%;
+    height: 80px;
+    background-color: white;
+    padding-top: 30px;
+    margin-left: -3px;
+    padding-left: 30px;
     font-size: large;
 }
